@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lemon&display=swap');
+
+:root {
+    --laranja-claro: #FF862A;
+    --cor-primaria: #CB6D43; /* Usada em nav-link e botões de formulário */
+    --cor-fundo-secundaria: #FAF4F4; /* Usada em #galeria */
+    
+    /* Alto Contraste */
+    --alto-contraste-fundo: #000000;
+    --alto-contraste-texto: #ffffff;
+    --alto-contraste-link: #ffd700;
+}
+
+body {
+    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    transition: font-size 0.2s ease; /* Adiciona transição para o zoom de fonte */
+}
+
+header {
+    background-color: #ffffff;
+}
+
+section {
+    padding-bottom: 5rem;
+}
+
+.nav-link {
+    color: var(--cor-primaria);
+    font-weight: 600;
+}
+
+.inicio-fundo {
+    background-image: url('img/4965007.jpg');
+    background-size: cover;
+    background-position: right;
+    border-radius: 80px;
+    width: 100%;
+    height: 606px;
+    padding: 40px;
+    margin: 0 auto;
+}
+
+/* Sugestão: Use position: relative no container e evite position: absolute para o img-inicio 
+   se possível, para melhor responsividade. Se for mantido, use media queries. */
+.img-inicio {
+    position: absolute;
+    right: 0;
+    top: 18rem;
+    width: 45rem;
+    height: auto;
+}
+
+
+.esquerda-conteudo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+
+.botao-inicio {
+    background-color: var(--laranja-claro);
+    border-radius: 30px;
+    border: none;
+    width: 14em;
+    height: 3em;
+    align-content: center;
+    color: #ffffff; /* Garante que o texto do botão é legível */
+    font-weight: 600;
+}
+
+.display-4 {
+    text-shadow: -5px 5px var(--laranja-claro);
+}
+
+
+#tropicalia {
+    position: relative;
+    padding-top: 5rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    background: url('img/flor.png') top right no-repeat,
+        url('img/flor-esquerda.png') bottom left no-repeat;
+    background-size: 180px 180px;
+}
+
+#tropicalia .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+
+
+h2 {
+    font-family: 'Lemon', serif;
+    font-size: 2.5em;
+    font-style: normal;
+    color: var(--laranja-claro);
+}
+
+#galeria {
+    background-color: var(--cor-fundo-secundaria);
+}
+
+.fundo-galeria {
+    background: url('img/flor-bottom-direita.png') bottom right no-repeat;
+    background-size: 180px 180px;
+}
+
+#contato {
+    background-image: url('img/4965007.jpg');
+    background-size: cover;
+    padding: 4rem 0;
+}
+
+.formulario {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+}
+
+.formulario button {
+    background-color: var(--cor-primaria);
+    border: none;
+    font-weight: bold;
+    color: #ffffff; /* Garante que o texto do botão é legível */
+}
+
+.form-control {
+    background-color: #F1EDEF;
+}
+
+/* --- Menu de Acessibilidade --- */
+.menu-acessibilidade{
+    position: fixed;
+    top: 2rem;
+    right: 20px;
+    z-index: 1000;
+}
+
+.rotacao-botao{
+    transform: rotate(-90deg);
+    transform-origin: right center;
+    transition: transform 0.3s; /* Adiciona transição para a rotação */
+}
+
+.opcoes-acessibilidade{
+    margin-top: 10px;
+    display: flex; 
+    flex-direction: column;
+    visibility: hidden; /* Esconde por padrão */
+    opacity: 0;
+    height: 0; /* Oculta o espaço */
+    transition: opacity 0.3s, visibility 0.3s, height 0.3s; 
+}
+
+.opcoes-acessibilidade button{
+    margin-bottom: 5px;
+}
+
+.mostra-lista{ /* CLASSE NOVA/RENOMEADA */
+    visibility: visible;
+    opacity: 1;
+    height: auto; /* Ocupa o espaço necessário */
+}
+
+/* --- Alto Contraste (Generalizado) --- */
+.alto-contraste {
+    background-color: var(--alto-contraste-fundo) !important;
+    color: var(--alto-contraste-texto) !important;
+    background-image: none !important;
+}
+
+.alto-contraste header,
+.alto-contraste footer,
+.alto-contraste section,
+.alto-contraste .formulario,
+.alto-contraste .fundo-galeria,
+.alto-contraste .inicio-fundo {
+    background-color: var(--alto-contraste-fundo) !important;
+    color: var(--alto-contraste-texto) !important;
+    background-image: none !important;
+}
+
+.alto-contraste .nav-link,
+.alto-contraste h2 { /* h2 também fica em alto contraste */
+    color: var(--alto-contraste-link) !important;
+}
+
+.alto-contraste .botao-inicio,
+.alto-contraste .formulario button,
+.alto-contraste .btn-primary {
+    background-color: var(--alto-contraste-link) !important;
+    color: var(--alto-contraste-fundo) !important; /* Texto preto no link amarelo/dourado */
+}
+
+.alto-contraste .display-4 {
+    text-shadow: none !important; /* Remove sombra no modo alto contraste */
+}
+
+.alto-contraste .form-control {
+     background-color: #444 !important; /* Campo de input mais escuro, mas não preto */
+     color: var(--alto-contraste-texto) !important;
+     border: 1px solid var(--alto-contraste-link) !important; /* Borda para destaque */
+}
